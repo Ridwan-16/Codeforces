@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define FAST_IO                  \
+    ios::sync_with_stdio(false); \
+    cin.tie(nullptr);
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+#define all(x) (x).begin(), (x).end()
+#define rep(i, a, b) for (int i = (a); i < (b); i++)
+
+#ifdef LOCAL
+#define dbg(x) cerr << #x << " = " << x << "\n";
+#else
+#define dbg(x)
+#endif
+
+void solve()
+{
+    long long n,ct1 = 0,ct2 = 0;
+    cin >> n;
+    for (long long i = 0; i < n; i++)
+    {
+        long long x;
+        cin >> x;
+
+        if(x == 1) ct1++;
+        else if(x == 2) ct2++;
+
+    }
+
+    if(ct1 % 2 == 0 && ct1 != 0) cout << "YES\n";
+    else if(ct1 == 0 && ct2 % 2 == 0) cout<<"YES\n";
+    else cout << "NO\n";
+
+}
+
+int main()
+{
+    FAST_IO;
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
+}
