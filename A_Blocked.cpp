@@ -18,11 +18,28 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    long long n;
+    cin>>n;
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - (n%12)<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+    set<long long> s;
+
+    for (ll i = 0; i < n; i++)
+    {
+        ll x;cin>>x;
+
+        s.insert(x);
+    }
+
+    if(s.size() < n) cout<< -1 <<endl;
+    else{
+        
+        for (auto it = s.rbegin(); it != s.rend(); ++it) {
+            cout << *it << " ";
+        }
+    
+        cout<<endl;
+    }
+    
 }
 
 int main() {

@@ -18,11 +18,34 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    ll n,mx = 0,onemax = 0,onemin = 0;
+    cin>>n;
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - (n%12)<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+    string arr;
+    cin>>arr;
+
+    for(ll i = 1;i < n - 1;i++){
+
+        if(arr[i - 1] == '1' && arr[i + 1] == '1') arr[i] = '1';
+    }
+
+    for (auto &&i : arr)
+    {
+        if(i == '1') onemax++;
+    }
+
+    for(ll i = 1;i < n - 1;i++){
+
+        if(arr[i - 1] == '1' && arr[i + 1] == '1') arr[i] = '0';
+    }
+
+    for (auto &&i : arr)
+    {
+        if(i == '1') onemin++;
+    }
+
+    cout<<onemin<<" "<<onemax<<endl;
+    
 }
 
 int main() {
@@ -32,5 +55,5 @@ int main() {
     while (t--) {
         solve();
     }
-    return 0;
-}
+   return 0;
+} 

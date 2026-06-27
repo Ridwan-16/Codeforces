@@ -2,13 +2,13 @@
 using namespace std;
 
 #define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
-#define endl "\n"
 typedef long long ll;
 typedef pair<int,int> pii;
 typedef vector<int> vi;
 typedef vector<ll> vll;
 #define all(x) (x).begin(), (x).end()
 #define rep(i,a,b) for (int i = (a); i < (b); i++)
+#define endl "\n"
 
 #ifdef LOCAL
 #define dbg(x) cerr << #x << " = " << x << "\n";
@@ -18,11 +18,35 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    long long n,count = 0;
+    cin>>n;
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - (n%12)<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+    vector<long long> arr(n);
+    // vector<long long> arr;
+
+    for(auto &&i : arr) cin>>i;
+
+    // for (ll i = 0; i < n; i++)
+    // {
+    //     ll x;cin>>x;
+    //     arr.push_back(x);
+    // }
+    
+
+    for (int i = n - 1; i > 0; i--)
+    {
+        if(arr[i] > 0) arr[i - 1] += arr[i]; 
+
+    }
+
+    for (auto &&i : arr)
+    {
+        if(i > 0) count++;
+    }
+
+    cout<< count <<endl;
+    
+    
 }
 
 int main() {

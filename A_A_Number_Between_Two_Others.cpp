@@ -18,11 +18,21 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    long long x,y,temp = 0;
+    cin>>x>>y;
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - (n%12)<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+
+    for (long long i = 2 * x; i < y; i+= x)
+    {
+        if(y % i) {
+            temp = 1;
+            break;
+        }
+
+    }
+    if(temp) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    
 }
 
 int main() {
