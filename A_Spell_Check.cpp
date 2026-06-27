@@ -18,12 +18,20 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    string m = "Timur";
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - 22<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+    sort(m.begin(),m.end());
 
+    ll n;cin>>n;
+
+    string s;cin>>s;
+
+    if(n != m.size()) cout<<"NO"<<endl;
+    else {
+        sort(s.begin(),s.end());
+        if(m == s) cout <<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
 }
 
 int main() {

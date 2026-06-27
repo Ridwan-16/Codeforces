@@ -18,12 +18,34 @@ typedef vector<ll> vll;
 
 void solve() {
 
-    ll n; cin>>n;
+    ll n,c,k;
+    cin>>n>>c>>k;
 
-    if(n == 10) cout<<-1<<endl;
-    else if(n%12 == 10) cout<< 22 <<" "<<n - 22<<endl;
-    else cout<<n%12<<" "<<n - (n%12)<<endl;
+    vector<ll> arr(n);
 
+    for (auto &&i : arr)
+    {
+        cin>>i;
+    }
+
+    sort(arr.begin(),arr.end());
+
+    for (ll i = 0; i < n; i++)
+    {
+        if(arr[i] <= c){
+            
+                // if(c - arr[i] <  0)break;
+                ll mn = min(c - arr[i],k);
+                k -= mn;
+                c+= mn + arr[i];
+                        
+        }
+    }
+    
+    
+
+    cout<<c<<endl;
+    
 }
 
 int main() {
